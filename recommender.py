@@ -91,30 +91,30 @@ def recommend_books(query: str, top_k: int = 5) -> str:
 ⭐ Rating: {df.iloc[i]['average_rating']}
 🏢 Publisher: {df.iloc[i]['publisher']}
 
-def recommend_books(query, top_k=5):
-    query = query.strip()
+# def recommend_books(query, top_k=5):
+#     query = query.strip()
 
-    # 1️⃣ Exact title match
-    exact = exact_title_match(df, query)
-    if len(exact) > 0:
-        return format_results(exact.head(top_k), note="Exact title match")
+#     # 1️⃣ Exact title match
+#     exact = exact_title_match(df, query)
+#     if len(exact) > 0:
+#         return format_results(exact.head(top_k), note="Exact title match")
 
-    # 2️⃣ Partial title match
-    partial = partial_title_match(df, query)
-    if len(partial) > 0:
-        return format_results(partial.head(top_k), note="Partial title match")
+#     # 2️⃣ Partial title match
+#     partial = partial_title_match(df, query)
+#     if len(partial) > 0:
+#         return format_results(partial.head(top_k), note="Partial title match")
 
-    # 3️⃣ Author match
-    author_hits = df[df["author"].str.lower().str.contains(query.lower())]
-    if len(author_hits) > 0:
-        return format_results(author_hits.head(top_k), note="Author match")
+#     # 3️⃣ Author match
+#     author_hits = df[df["author"].str.lower().str.contains(query.lower())]
+#     if len(author_hits) > 0:
+#         return format_results(author_hits.head(top_k), note="Author match")
 
-    # 4️⃣ Semantic search (FAISS)
-    return semantic_search(query, top_k)
-"""
-        )
+#     # 4️⃣ Semantic search (FAISS)
+#     return semantic_search(query, top_k)
+# """
+#         )
 
-    return "\n\n".join(results)
+#     return "\n\n".join(results)
 
 # import pandas as pd
 # import numpy as np
@@ -278,3 +278,4 @@ def recommend_books(query, top_k=5):
 #     # 4️⃣ Semantic search
 #     semantic_results = semantic_search(query, top_k)
 #     return format_results(semantic_results, "Semantic recommendations")
+
