@@ -6,3 +6,4 @@ pandas
 numpy
 datasets
 python-dotenv
+scikit-learn
